@@ -12,7 +12,9 @@ public class DataItem {
         this.value = value;
     }
 
-    public void log(){
-        System.out.print("|" + key + ":"+value+"|");
+    public String log(){
+        String log = key + "=" + value + ";";
+        System.out.print(key + "=" + value + ";");
+        return log;
     }
 }
