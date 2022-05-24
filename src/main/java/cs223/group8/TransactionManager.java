@@ -2,6 +2,8 @@ package cs223.group8;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import cs223.group8.entity.DataItem;
+import cs223.group8.repository.FollowerOneDatasourceRepository;
+import cs223.group8.repository.FollowerTwoDatasourceRepository;
 import cs223.group8.repository.LeaderDatasouceRepository;
 import cs223.group8.utils.LogParser;
 import cs223.group8.utils.Operation;
@@ -107,10 +109,14 @@ public class TransactionManager {
                 logParser.writeEntry(entry);
                 System.out.println();
 
-                //TODO: append to log file
+                //TODO: Synchronize with follower1 and follower2
+                System.out.println("Synchronizing with follower1...");
+                FollowerOneDatasourceRepository followerOneDatasourceRepository = new FollowerOneDatasourceRepository();
+                followerOneDatasourceRepository.SynchronizeWithLeader(entry);
 
-
-
+                System.out.println("Synchronizing with follower2...");
+                FollowerTwoDatasourceRepository followerTwoDatasourceRepository = new FollowerTwoDatasourceRepository();
+                followerTwoDatasourceRepository.SynchronizeWithLeader(entry);
 
                 return new Pair<>("COMMITTED", this.data);
             }
