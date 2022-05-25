@@ -136,5 +136,6 @@ public class WorkflowController {
 
         // TODO: print final schedule
         System.out.println("Schedule generated: ");
+        transactionManager.printSchedule();
     }
 }

@@ -33,6 +33,7 @@ public class TransactionManager {
     private ArrayList<Transaction> TSs = new ArrayList<>();
     private HashMap<String, DataItem> data = new HashMap<>();
     private LeaderDatasouceRepository leaderDatasouceRepository;
+    private String finalSchedule = "";
 
 //    @Override
 //    public Integer readItemValue(String key) {
@@ -75,10 +76,13 @@ public class TransactionManager {
 
         if(opType.equals(READ)){
 //            System.out.println("Read the value");
+            this.finalSchedule += String.format("%s-%s(%s); ", txn.getName(), opType, key);
             return new Pair<>("READ", this.data);
         }
         else if(opType.equals(WRITE)){
 //            System.out.println("Write the value");
+            Integer value = op.getValue();
+            this.finalSchedule += String.format("%s-%s(%s=%s); ", txn.getName(), opType, key, value);
             return new Pair<>("WRITE", this.data);
         }
 
@@ -93,6 +97,7 @@ public class TransactionManager {
 
             if(success){
                 //enter the write phase
+                this.finalSchedule += String.format("%s-%s; ", txn.getName(), opType);
                 this.data = txn.getData();
                 txn.setFinishTS(new Timestamp(System.currentTimeMillis()));
 
@@ -124,6 +129,7 @@ public class TransactionManager {
             //if failed, rollback
             else{
                 System.out.println(txn.getName() + "'s validation failed. Must rollback.");
+                this.finalSchedule += String.format("%s-A; ", txn.getName());
                 DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
 
                 Date myDate1 = null;
@@ -159,5 +165,9 @@ public class TransactionManager {
                 return true;
         }
         return false;
+    }
+
+    public void printSchedule(){
+        System.out.println(finalSchedule);
     }
 }
