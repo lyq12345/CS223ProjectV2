@@ -21,49 +21,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class TransactionManager {
-//    @Resource
-//    private DataItemMapper dataItemMapper;
-//
+
     public static final String COMMIT = "C";
     public static final String WRITE = "W";
     public static final String READ = "R";
 
-    //    private ArrayList<Transaction> commits = new ArrayList<>();
-//    private ArrayList<Transaction> rollbacks = new ArrayList<>();
     private ArrayList<Transaction> TSs = new ArrayList<>();
     private HashMap<String, DataItem> data = new HashMap<>();
     private LeaderDatasouceRepository leaderDatasouceRepository;
     private String finalSchedule = "";
 
-//    @Override
-//    public Integer readItemValue(String key) {
-//        QueryWrapper<DataItem> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("key", key);
-//        DataItem item = dataItemMapper.selectOne(queryWrapper);
-//        return item.getValue();
-//    }
-//
-//    @Override
-//    public void writeItemValue(String key, Integer value) {
-//        DataItem item = new DataItem(key, value);
-//        QueryWrapper<DataItem> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("key", key);
-//        if(null == dataItemMapper.selectOne(queryWrapper)){
-//            dataItemMapper.insert(item);
-//        }else{
-//            dataItemMapper.update(item, queryWrapper);
-//        }
-//    }
-//
-//    @Override
-////    @Transactional
-//    public synchronized void transactionWithSychronized() {
-//        QueryWrapper<DataItem> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("key", "x");
-//        DataItem item = dataItemMapper.selectOne(queryWrapper);
-//        item.setValue(item.getValue() + 1);
-//        dataItemMapper.update(item, queryWrapper);
-//    }
+
     public TransactionManager() {
         leaderDatasouceRepository = new LeaderDatasouceRepository();
     }
@@ -75,6 +43,7 @@ public class TransactionManager {
         String key = op.getKey();
 
         if(opType.equals(READ)){
+            // TODO: return the read value
 //            System.out.println("Read the value");
             this.finalSchedule += String.format("%s-%s(%s); ", txn.getName(), opType, key);
             return new Pair<>("READ", this.data);

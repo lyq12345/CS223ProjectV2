@@ -4,7 +4,6 @@ import cs223.group8.entity.DataItem;
 import cs223.group8.utils.Transaction;
 import javafx.util.Pair;
 
-import javax.annotation.Resource;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,20 +24,6 @@ public class WorkflowController {
     public static final String READ = "R";
 
     private TransactionManager transactionManager;
-
-//    @Autowired
-//    private static TransactionManager transactionManager;
-//
-//    @PostConstruct
-//    public void init() {
-//        transactionManager = this;
-//        transactionManager.dataItemService = this.dataItemService;
-//    }
-
-
-//    public TransactionManager(){
-////        this.load(filename);
-//    }
 
     public void load(String filename){
         transactionManager = new TransactionManager();
@@ -108,6 +93,7 @@ public class WorkflowController {
                 String message = pair.getKey();
                 HashMap<String, DataItem> data = pair.getValue();
                 if(message.equals("COMMITTED")){
+
                     // update unstarted transacitons' data
                     for(String key: this.txns.keySet()){
                         if(this.txns.get(key).getPtr() == 0)
@@ -115,7 +101,6 @@ public class WorkflowController {
                     }
 
                     //add to commited list
-                    //log
                     this.commits.add(txn);
 
                     //if it has been rolled back before, remove it from rollback record
@@ -123,6 +108,7 @@ public class WorkflowController {
                         this.rollbacks.remove(txn);
                     }
                 } else if(message.equals("ABORT")){
+                    // avoid repeated add
                     if(!this.rollbacks.contains(txn))
                         this.rollbacks.add(txn);
                 }
@@ -134,7 +120,7 @@ public class WorkflowController {
 
         }
 
-        // TODO: print final schedule
+        // print final schedule
         System.out.println("Schedule generated: ");
         transactionManager.printSchedule();
     }
