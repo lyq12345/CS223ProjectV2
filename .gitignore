@@ -102,3 +102,4 @@ README.html
 
 #logs日志底下
 src/main/java/cs223/group8/logs/*
+src/main/java/cs223/group8/session/*
