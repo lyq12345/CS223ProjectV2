@@ -15,7 +15,7 @@ public class Launch {
 //        }
 
         WorkflowController workflowController = new WorkflowController();
-        workflowController.load("src/main/java/cs223/group8/sequences.txt");
+        workflowController.load("src/main/java/cs223/group8/readonly.txt");
         workflowController.run();
     }
 }

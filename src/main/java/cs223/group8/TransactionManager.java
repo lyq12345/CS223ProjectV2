@@ -4,11 +4,14 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import cs223.group8.entity.DataItem;
 import cs223.group8.repository.FollowerOneDatasourceRepository;
 import cs223.group8.repository.FollowerTwoDatasourceRepository;
+import cs223.group8.repository.GeneralDatasourceRepository;
 import cs223.group8.repository.LeaderDatasouceRepository;
+import cs223.group8.session.GeneralSessionConfig;
 import cs223.group8.utils.LogParser;
 import cs223.group8.utils.Operation;
 import cs223.group8.utils.Transaction;
 import javafx.util.Pair;
+import org.apache.ibatis.session.SqlSession;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
@@ -28,12 +31,13 @@ public class TransactionManager {
 
     private ArrayList<Transaction> TSs = new ArrayList<>();
     private HashMap<String, DataItem> data = new HashMap<>();
-    private LeaderDatasouceRepository leaderDatasouceRepository;
+    private GeneralDatasourceRepository generalDatasourceRepository;
     private String finalSchedule = "";
+    private String currentLeader = "leader";
 
 
     public TransactionManager() {
-        leaderDatasouceRepository = new LeaderDatasouceRepository();
+        generalDatasourceRepository = new GeneralDatasourceRepository();
     }
 
 
@@ -43,13 +47,10 @@ public class TransactionManager {
         String key = op.getKey();
 
         if(opType.equals(READ)){
-            // TODO: return the read value
-//            System.out.println("Read the value");
             this.finalSchedule += String.format("%s-%s(%s); ", txn.getName(), opType, key);
             return new Pair<>("READ", this.data);
         }
         else if(opType.equals(WRITE)){
-//            System.out.println("Write the value");
             Integer value = op.getValue();
             this.finalSchedule += String.format("%s-%s(%s=%s); ", txn.getName(), opType, key, value);
             return new Pair<>("WRITE", this.data);
@@ -73,52 +74,57 @@ public class TransactionManager {
                 System.out.println("data after " + txn.getName() + " is committed: ");
 
 
-                LogParser logParser = new LogParser("src/main/java/cs223/group8/logs/leader_log.txt");
+                LogParser logParser = new LogParser("src/main/java/cs223/group8/logs/" + currentLeader + "_log.txt");
                 String entry = "";
                 //apply to the database
                 for(DataItem item: this.data.values()){
-                    leaderDatasouceRepository.writeItem(item.getKey(), item.getValue());
+                    generalDatasourceRepository.writeItem(item.getKey(), item.getValue());
                     entry += item.log();
                 }
                 logParser.writeEntry(entry);
                 System.out.println();
 
-                //TODO: Synchronize with follower1 and follower2
                 System.out.println("Synchronizing with follower1...");
-                FollowerOneDatasourceRepository followerOneDatasourceRepository = new FollowerOneDatasourceRepository();
-                followerOneDatasourceRepository.SynchronizeWithLeader(entry);
+                GeneralSessionConfig.changeSession("follower1");
+                generalDatasourceRepository.SynchronizeWithLeader(entry, "src/main/java/cs223/group8/logs/follower1_log.txt");
 
                 System.out.println("Synchronizing with follower2...");
-                FollowerTwoDatasourceRepository followerTwoDatasourceRepository = new FollowerTwoDatasourceRepository();
-                followerTwoDatasourceRepository.SynchronizeWithLeader(entry);
+                GeneralSessionConfig.changeSession("follower2");
+                generalDatasourceRepository.SynchronizeWithLeader(entry, "src/main/java/cs223/group8/logs/follower2_log.txt");
+
+                GeneralSessionConfig.changeSession(currentLeader);
 
                 return new Pair<>("COMMITTED", this.data);
             }
 
             //if failed, rollback
             else{
-                System.out.println(txn.getName() + "'s validation failed. Must rollback.");
-                this.finalSchedule += String.format("%s-A; ", txn.getName());
-                DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
-
-                Date myDate1 = null;
-                try{
-                    myDate1 = dateFormat1.parse("3000-01-01");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                Timestamp FAR_FUTURE_TIME = new Timestamp(myDate1.getTime());
-                txn.setStartTS(FAR_FUTURE_TIME);
-                txn.setValidationTS(FAR_FUTURE_TIME);
-                txn.setFinishTS(FAR_FUTURE_TIME);
-                txn.setPtr(0);
-                txn.setData(this.data);
-                this.TSs.remove(txn);
+                rollback(txn);
                 return new Pair<>("ABORT", null);
             }
         }
 
         return null;
+    }
+
+    public void rollback(Transaction txn) {
+        System.out.println(txn.getName() + "'s validation failed. Must rollback.");
+        this.finalSchedule += String.format("%s-A; ", txn.getName());
+        DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date myDate1 = null;
+        try{
+            myDate1 = dateFormat1.parse("3000-01-01");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Timestamp FAR_FUTURE_TIME = new Timestamp(myDate1.getTime());
+        txn.setStartTS(FAR_FUTURE_TIME);
+        txn.setValidationTS(FAR_FUTURE_TIME);
+        txn.setFinishTS(FAR_FUTURE_TIME);
+        txn.setPtr(0);
+        txn.setData(this.data);
+        this.TSs.remove(txn);
     }
 
     private boolean compare(Transaction tr1, Transaction tr2) {
@@ -136,7 +142,12 @@ public class TransactionManager {
         return false;
     }
 
+    public void changeCurrentLeader(String leaderName){
+        this.currentLeader = leaderName;
+    }
+
     public void printSchedule(){
         System.out.println(finalSchedule);
     }
+
 }

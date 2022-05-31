@@ -1,8 +1,9 @@
 package cs223.group8.utils;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import cs223.group8.entity.DataItem;
+
+import java.io.*;
+import java.util.Random;
 
 public class LogParser {
     private String filename;
@@ -22,7 +23,6 @@ public class LogParser {
 
     }
 
-    public void readEntry() {
-
-    }
+//    public String readEntry() {
+//    }
 }

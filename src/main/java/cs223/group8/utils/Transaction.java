@@ -2,6 +2,7 @@ package cs223.group8.utils;
 
 
 import cs223.group8.entity.DataItem;
+import cs223.group8.repository.GeneralDatasourceRepository;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -95,7 +96,6 @@ public class Transaction {
     public Operation next(){
         try {
             Operation operation = this.ops.get(this.ptr);
-//            this.ptr++;
             return operation;
         } catch (IndexOutOfBoundsException e){
             e.printStackTrace();
@@ -106,6 +106,11 @@ public class Transaction {
     public Operation exec(){
         try{
             Operation op = this.ops.get(this.ptr);
+            if(op.getOpType().equals(READ)) {
+                GeneralDatasourceRepository generalDatasourceRepository = new GeneralDatasourceRepository();
+                Integer value = generalDatasourceRepository.readItemValue(op.getKey());
+                this.data.get(op.getKey()).setValue(value);
+            }
             if(op.getOpType().equals(WRITE)){
                 this.data.get(op.getKey()).setValue(op.getValue());
             }
