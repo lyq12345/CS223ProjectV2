@@ -1,19 +1,22 @@
 package cs223.group8.utils;
 
 
+import cs223.group8.LockManager;
 import cs223.group8.entity.DataItem;
 import cs223.group8.repository.GeneralDatasourceRepository;
+import cs223.group8.session.GeneralSessionConfig;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class Transaction {
+    public final String nodeName;
+    
+    public boolean isLeader;
+
     public static final String COMMIT = "C";
     public static final String WRITE = "W";
     public static final String READ = "R";
@@ -29,8 +32,9 @@ public class Transaction {
     private Timestamp finishTS;
     HashMap<String, DataItem> data;
 
-    public Transaction(String schedule, HashMap<String, DataItem> data) {
-
+    public Transaction(String schedule, HashMap<String, DataItem> data, String nodeName, boolean isLeader) {
+        this.nodeName = nodeName;
+        this.isLeader = isLeader;
         DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
         Date myDate1 = null;
         try{
@@ -79,7 +83,7 @@ public class Transaction {
 
 
         String[] sch = schedule.split(":");
-        this.name = sch[0];
+        this.name = nodeName + "-" + sch[0];
         String[] ops = sch[1].split(";");
         for(String op: ops){
             try{
@@ -107,6 +111,10 @@ public class Transaction {
         try{
             Operation op = this.ops.get(this.ptr);
             if(op.getOpType().equals(READ)) {
+                // Check and change database session
+                if (!Objects.equals(this.nodeName, GeneralSessionConfig.currentDBName)) {
+                    GeneralSessionConfig.changeSession(this.nodeName);
+                }
                 GeneralDatasourceRepository generalDatasourceRepository = new GeneralDatasourceRepository();
                 Integer value = generalDatasourceRepository.readItemValue(op.getKey());
                 this.data.get(op.getKey()).setValue(value);
@@ -122,7 +130,7 @@ public class Transaction {
                 Long datetime = System.currentTimeMillis();
                 this.validationTS = new Timestamp(datetime);
             }
-            this.ptr += 1;
+            this.ptr += 1; // if no lock access, do not increment
             return op;
         } catch (IndexOutOfBoundsException e){
             return null;
@@ -215,6 +223,76 @@ public class Transaction {
                 return false;
         } else if (!name.equals(other.name))
             return false;
+        return true;
+    }
+    
+    // Add locks before starting transcation.
+    public boolean addLocks() {
+        boolean canLock = true;
+        // Before any execution of the transcation, check lock
+        if (isLeader) {
+            // Leader
+            for (String dataItemName : this.getWriteSet()) {
+                if (!LockManager.testOrAddLock(this.getName(), dataItemName, true, false)) {
+                    // Unable to add this lock
+                    System.out.println(this.getName() + " unable to lock " + dataItemName + " with Leader Lock");
+                    canLock = false;
+                }
+            }
+            // Only add lock after testing all locks can be added.
+            if (canLock) {
+                for (String dataItemName: this.getWriteSet()) {
+                    LockManager.testOrAddLock(this.getName(), dataItemName, true, true);
+                    System.out.println(this.getName() + " locked " + dataItemName + " with Leader Lock");
+                }
+            }
+        } else {
+            // Follower
+            for (String dataItemName : this.getReadSet()) {
+                if (!LockManager.testOrAddLock(this.getName(), dataItemName, false, false)) {
+                    // Unable to add this lock
+                    System.out.println(this.getName() + " unable to lock " + dataItemName + " with Follower Lock");
+                    canLock = false;
+                }
+            }
+            // Only add lock after testing all locks can be added.
+            if (canLock) {
+                for (String dataItemName: this.getReadSet()) {
+                    LockManager.testOrAddLock(this.getName(), dataItemName, false, true);
+                    System.out.println(this.getName() + " locked " + dataItemName + " with Follower Lock");
+                }
+            }
+        }
+        return canLock;
+    }
+
+    public void releaseLocks() {
+        if (isLeader) {
+            for (String dataItemName : this.getWriteSet()) {
+                LockManager.releaseLock(this.getName(), dataItemName, true);
+                System.out.println(this.getName() + " unlocked " + dataItemName + " from Leader Lock");
+            }
+        } else {
+            for (String dataItemName : this.getReadSet()) {
+                LockManager.releaseLock(this.getName(), dataItemName, false);
+                System.out.println(this.getName() + " unlocked " + dataItemName + " from Follower Lock");
+            }
+        }
+    }
+    
+    public boolean canExecute() {
+        Operation op = this.ops.get(this.ptr);
+        String dataItemName = op.getKey();
+        if (isLeader) {
+            if (op.getOpType().equals(WRITE)) {
+                // Check if has lock
+                return LockManager.testOrAddLock(this.getName(), dataItemName, isLeader, false);
+            }
+        } else {
+            if (op.getOpType().equals(READ)) {
+                return LockManager.testOrAddLock(this.getName(), dataItemName, isLeader, false);
+            }
+        }
         return true;
     }
 

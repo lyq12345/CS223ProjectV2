@@ -11,10 +11,9 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class WorkflowController {
     private HashMap<String, DataItem> data = new HashMap<>();
@@ -29,13 +28,15 @@ public class WorkflowController {
 
     private int failIndex = 0;
 
-    private TransactionManager transactionManager;
+    private final TransactionManager transactionManager = new TransactionManager();;
 
+    // File name is the node name
     public void load(String filename){
-        transactionManager = new TransactionManager();
         try {
+            String[] splitRes = filename.split("/");
+            String nodeName = splitRes[splitRes.length-1];
             InputStreamReader reader = new InputStreamReader(
-                    new FileInputStream(filename));
+                    Files.newInputStream(Paths.get(filename)));
             BufferedReader br = new BufferedReader(reader);
 
             int n = Integer.parseInt(br.readLine());
@@ -48,17 +49,9 @@ public class WorkflowController {
             n = Integer.parseInt(br.readLine());
             for(int i=0; i<n; i++){
                 String line = br.readLine();
-                Transaction txn = new Transaction(line, this.data);
+                Transaction txn = new Transaction(line, this.data, nodeName, Objects.equals(this.transactionManager.getCurrentLeader(), nodeName));
                 this.txns.put(txn.getName(), txn);
             }
-
-            //count operations
-            int opNum = 0;
-            for(Transaction txn: txns.values()){
-                opNum += txn.getOps().size();
-            }
-            Random r = new Random();
-            failIndex = r.nextInt(opNum);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,52 +89,76 @@ public class WorkflowController {
     }
 
     public void run(){
+        //count operations
+        int opNum = 0;
+        for(Transaction txn: txns.values()){
+            opNum += txn.getOps().size();
+        }
+        Random r = new Random();
+        failIndex = r.nextInt(opNum);
+
         while(true){
             this.log();
             Transaction txn = this.chooseTxn();
-            failIndex--;
 
-            // TODO: simulation of failure
-            if(failIndex == 0){
-                System.out.println("Failure happens, need to recover");
-                System.out.println("Creating new node...");
-                GeneralSessionConfig.createNewSession("follower3");
-                transactionManager.changeCurrentLeader("follower3");
-                System.out.println("Redo committed txns...");
-                try {
-                    InputStreamReader reader = new InputStreamReader(
-                            new FileInputStream("src/main/java/cs223/group8/logs/follower1_log.txt"));
-                    BufferedReader br = new BufferedReader(reader);
-                    String line = null;
-                    while((line = br.readLine()) != null){
-                        LogParser logParser = new LogParser("src/main/java/cs223/group8/logs/follower3_log.txt");
-                        logParser.writeEntry(line);
-                        String[] splits = line.split(";");
-                        for(String items: splits){
-                            String[] item = items.split("=");
-                            generalDatasourceRepository.writeItem(item[0], Integer.parseInt(item[1]));
-                        }
-                    }
-
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                System.out.println("Undo uncommited txns...");
-                for(Transaction trans: txns.values()) {
-                    if(!commits.contains(trans)){
-                        transactionManager.rollback(trans);
-                        if(!this.rollbacks.contains(trans))
-                            this.rollbacks.add(trans);
-                    }
-                }
-                continue;
-            }
+            // simulation of failure
+//            if(failIndex == 0){
+//                System.out.println("Failure happens, need to recover");
+//                System.out.println("Creating new node...");
+//                GeneralSessionConfig.createNewSession("backup_leader");
+//                transactionManager.changeCurrentLeader("backup_leader");
+//                System.out.println("Redo committed txns...");
+//                try {
+//                    InputStreamReader reader = new InputStreamReader(
+//                            Files.newInputStream(Paths.get("logs/follower1_log.txt")));
+//                    BufferedReader br = new BufferedReader(reader);
+//                    String line = null;
+//                    while((line = br.readLine()) != null){
+//                        LogParser logParser = new LogParser("src/main/java/cs223/group8/logs/backup_leader_log.txt");
+//                        logParser.writeEntry(line);
+//                        String[] splits = line.split(";");
+//                        for(String items: splits){
+//                            String[] item = items.split("=");
+//                            generalDatasourceRepository.writeItem(item[0], Integer.parseInt(item[1]));
+//                        }
+//                    }
+//
+//
+//
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                System.out.println("Undo uncommited txns...");
+//                for(Transaction trans: txns.values()) {
+//                    if(!commits.contains(trans)){
+//                        transactionManager.rollback(trans);
+//                        if(!this.rollbacks.contains(trans))
+//                            this.rollbacks.add(trans);
+//                    }
+//                }
+//                continue;
+//            }
 
 
             if(txn != null){
+
+                // Check and add locks.
+                if (txn.getPtr() == 0) {
+                    if (!txn.addLocks())
+                        continue;
+                }
+
+                // For data item involved in this operation, first check if has lock.
+                if (!txn.canExecute()) {
+                    System.out.print("Cannot execute: " + txn.getName() + "-");
+                    txn.next().log();
+                    System.out.print(" because it is blocked.");
+                    System.out.println();
+                    // Proceed without continuing because it is blocked.
+                    continue;
+                }
+
                 System.out.print("execute: " + txn.getName() + "-");
                 txn.next().log();
                 System.out.println();
@@ -163,16 +180,21 @@ public class WorkflowController {
                     if(this.rollbacks.contains(txn)){
                         this.rollbacks.remove(txn);
                     }
+                    // Release locks
+                    txn.releaseLocks();
                 } else if(message.equals("ABORT")){
                     // avoid repeated add
                     if(!this.rollbacks.contains(txn))
                         this.rollbacks.add(txn);
+                    txn.releaseLocks();
                 }
                 System.out.println();
             }else{
                 System.out.println();
                 break;
             }
+
+            failIndex--;
 
         }
 

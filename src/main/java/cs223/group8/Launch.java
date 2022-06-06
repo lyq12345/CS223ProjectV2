@@ -15,7 +15,9 @@ public class Launch {
 //        }
 
         WorkflowController workflowController = new WorkflowController();
-        workflowController.load("src/main/java/cs223/group8/readonly.txt");
+        workflowController.load("transactions/leader");
+        workflowController.load("transactions/follower1");
+        workflowController.load("transactions/follower2");
         workflowController.run();
     }
 }

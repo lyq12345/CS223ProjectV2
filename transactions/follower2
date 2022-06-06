@@ -1,0 +1,8 @@
+3
+A=3
+B=3
+C=2
+3
+T1:R_A;R_B;R_C;C;
+T2:R_C;R_B;C;
+T3:R_B;R_A;C;

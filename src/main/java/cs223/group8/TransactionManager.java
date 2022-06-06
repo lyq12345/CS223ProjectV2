@@ -1,19 +1,12 @@
 package cs223.group8;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import cs223.group8.entity.DataItem;
-import cs223.group8.repository.FollowerOneDatasourceRepository;
-import cs223.group8.repository.FollowerTwoDatasourceRepository;
 import cs223.group8.repository.GeneralDatasourceRepository;
-import cs223.group8.repository.LeaderDatasouceRepository;
 import cs223.group8.session.GeneralSessionConfig;
 import cs223.group8.utils.LogParser;
 import cs223.group8.utils.Operation;
 import cs223.group8.utils.Transaction;
 import javafx.util.Pair;
-import org.apache.ibatis.session.SqlSession;
-
-import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -33,6 +26,11 @@ public class TransactionManager {
     private HashMap<String, DataItem> data = new HashMap<>();
     private GeneralDatasourceRepository generalDatasourceRepository;
     private String finalSchedule = "";
+
+    public String getCurrentLeader() {
+        return currentLeader;
+    }
+
     private String currentLeader = "leader";
 
 
@@ -58,11 +56,13 @@ public class TransactionManager {
 
         // If the transaction enters the validation phase
         if(opType.equals(COMMIT)){
-            this.TSs.add(txn);
             boolean success = true;
-            for(int i=0; i<this.TSs.size()-1; i++){
-                success = this.compare(txn, this.TSs.get(i));
-                if(!success) break;
+            if (txn.isLeader) {
+                this.TSs.add(txn);
+                for(int i=0; i<this.TSs.size()-1; i++){
+                    success = this.compare(txn, this.TSs.get(i));
+                    if(!success) break;
+                }
             }
 
             if(success){
@@ -73,34 +73,41 @@ public class TransactionManager {
 
                 System.out.println("data after " + txn.getName() + " is committed: ");
 
+                if (txn.isLeader) {
+                    LogParser logParser = new LogParser("logs/" + currentLeader + "_log.txt");
+                    String entry = "";
+                    //apply to the database
+                    for(DataItem item: this.data.values()){
+                        generalDatasourceRepository.writeItem(item.getKey(), item.getValue());
+                        entry += item.log();
+                    }
+                    logParser.writeEntry(entry);
+                    System.out.println();
 
-                LogParser logParser = new LogParser("src/main/java/cs223/group8/logs/" + currentLeader + "_log.txt");
-                String entry = "";
-                //apply to the database
-                for(DataItem item: this.data.values()){
-                    generalDatasourceRepository.writeItem(item.getKey(), item.getValue());
-                    entry += item.log();
+                    System.out.println("Synchronizing with follower1...");
+                    GeneralSessionConfig.changeSession("follower1");
+                    generalDatasourceRepository.SynchronizeWithLeader(entry, "logs/follower1_log.txt");
+
+                    System.out.println("Synchronizing with follower2...");
+                    GeneralSessionConfig.changeSession("follower2");
+                    generalDatasourceRepository.SynchronizeWithLeader(entry, "logs/follower2_log.txt");
+
+                    GeneralSessionConfig.changeSession(currentLeader);
                 }
-                logParser.writeEntry(entry);
-                System.out.println();
-
-                System.out.println("Synchronizing with follower1...");
-                GeneralSessionConfig.changeSession("follower1");
-                generalDatasourceRepository.SynchronizeWithLeader(entry, "src/main/java/cs223/group8/logs/follower1_log.txt");
-
-                System.out.println("Synchronizing with follower2...");
-                GeneralSessionConfig.changeSession("follower2");
-                generalDatasourceRepository.SynchronizeWithLeader(entry, "src/main/java/cs223/group8/logs/follower2_log.txt");
-
-                GeneralSessionConfig.changeSession(currentLeader);
 
                 return new Pair<>("COMMITTED", this.data);
             }
 
+            // TODO: follower do not need to roll back
             //if failed, rollback
             else{
-                rollback(txn);
-                return new Pair<>("ABORT", null);
+                if (txn.isLeader) {
+                    rollback(txn);
+                    return new Pair<>("ABORT", null);
+                } else {
+                    return new Pair<>("COMMITTED", this.data);
+                }
+
             }
         }
 

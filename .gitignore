@@ -101,5 +101,5 @@ README.html
 .idea
 
 #logs日志底下
-src/main/java/cs223/group8/logs/*
+logs/*
 src/main/java/cs223/group8/session/*
