@@ -21,4 +21,6 @@ create unique index data_item_key_uindex
 
 运行：Launch.class
 
-每次跑完记得删除src/main/java/cs223/group8/logs底下所有文件，并删除follower3这个数据库
+Create a `logs/` folder under the project root directory if not already there.
+
+每次跑完记得删除`logs/`底下所有文件，并删除follower3这个数据库
