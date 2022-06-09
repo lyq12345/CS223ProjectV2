@@ -33,6 +33,8 @@ public class TransactionManager {
 
     private String currentLeader = "leader";
 
+    public final String logTimePostfix = String.valueOf(System.currentTimeMillis());
+
 
     public TransactionManager() {
         generalDatasourceRepository = new GeneralDatasourceRepository();
@@ -74,7 +76,8 @@ public class TransactionManager {
                 System.out.println("data after " + txn.getName() + " is committed: ");
 
                 if (txn.isLeader) {
-                    LogParser logParser = new LogParser("logs/" + currentLeader + "_log.txt");
+                    GeneralSessionConfig.changeSession(currentLeader);
+                    LogParser logParser = new LogParser("logs/" + logTimePostfix + "_" + currentLeader + "_log.txt");
                     String entry = "";
                     //apply to the database
                     for(DataItem item: this.data.values()){
@@ -86,19 +89,16 @@ public class TransactionManager {
 
                     System.out.println("Synchronizing with follower1...");
                     GeneralSessionConfig.changeSession("follower1");
-                    generalDatasourceRepository.SynchronizeWithLeader(entry, "logs/follower1_log.txt");
+                    generalDatasourceRepository.SynchronizeWithLeader(entry, "logs/" + logTimePostfix + "_follower1_log.txt");
 
                     System.out.println("Synchronizing with follower2...");
                     GeneralSessionConfig.changeSession("follower2");
-                    generalDatasourceRepository.SynchronizeWithLeader(entry, "logs/follower2_log.txt");
-
-                    GeneralSessionConfig.changeSession(currentLeader);
+                    generalDatasourceRepository.SynchronizeWithLeader(entry, "logs/" + logTimePostfix + "_follower2_log.txt");
                 }
 
                 return new Pair<>("COMMITTED", this.data);
             }
 
-            // TODO: follower do not need to roll back
             //if failed, rollback
             else{
                 if (txn.isLeader) {

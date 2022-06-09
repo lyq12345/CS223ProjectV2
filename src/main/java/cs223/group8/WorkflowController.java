@@ -28,7 +28,7 @@ public class WorkflowController {
 
     private int failIndex = 0;
 
-    private final TransactionManager transactionManager = new TransactionManager();;
+    private final TransactionManager transactionManager = new TransactionManager();
 
     // File name is the node name
     public void load(String filename){
@@ -90,55 +90,59 @@ public class WorkflowController {
 
     public void run(){
         //count operations
-        int opNum = 0;
+        int numLeaderOps = 0;
         for(Transaction txn: txns.values()){
-            opNum += txn.getOps().size();
+            if (txn.isLeader)
+                numLeaderOps += txn.getOps().size();
         }
         Random r = new Random();
-        failIndex = r.nextInt(opNum);
+        failIndex = numLeaderOps - r.nextInt(3);
 
         while(true){
             this.log();
             Transaction txn = this.chooseTxn();
 
             // simulation of failure
-//            if(failIndex == 0){
-//                System.out.println("Failure happens, need to recover");
-//                System.out.println("Creating new node...");
-//                GeneralSessionConfig.createNewSession("backup_leader");
-//                transactionManager.changeCurrentLeader("backup_leader");
-//                System.out.println("Redo committed txns...");
-//                try {
-//                    InputStreamReader reader = new InputStreamReader(
-//                            Files.newInputStream(Paths.get("logs/follower1_log.txt")));
-//                    BufferedReader br = new BufferedReader(reader);
-//                    String line = null;
-//                    while((line = br.readLine()) != null){
-//                        LogParser logParser = new LogParser("src/main/java/cs223/group8/logs/backup_leader_log.txt");
-//                        logParser.writeEntry(line);
-//                        String[] splits = line.split(";");
-//                        for(String items: splits){
-//                            String[] item = items.split("=");
-//                            generalDatasourceRepository.writeItem(item[0], Integer.parseInt(item[1]));
-//                        }
-//                    }
-//
-//
-//
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                System.out.println("Undo uncommited txns...");
-//                for(Transaction trans: txns.values()) {
-//                    if(!commits.contains(trans)){
-//                        transactionManager.rollback(trans);
-//                        if(!this.rollbacks.contains(trans))
-//                            this.rollbacks.add(trans);
-//                    }
-//                }
-//                continue;
-//            }
+            if(failIndex == 0){
+                System.out.println("Failure happens, need to recover");
+                System.out.println("Creating new node...");
+                String newLeaderName = "backup_leader_" + System.currentTimeMillis();
+                GeneralSessionConfig.createNewSession(newLeaderName);
+                transactionManager.changeCurrentLeader(newLeaderName);
+                System.out.println("Redo committed txns...");
+                try {
+                    InputStreamReader reader = new InputStreamReader(
+                            Files.newInputStream(Paths.get("logs/"  + transactionManager.logTimePostfix + "_follower1_log.txt")));
+                    BufferedReader br = new BufferedReader(reader);
+                    String line = null;
+                    while((line = br.readLine()) != null){
+                        LogParser logParser = new LogParser("logs/" + transactionManager.logTimePostfix + "_" + newLeaderName + "_log.txt");
+                        logParser.writeEntry(line);
+                        String[] splits = line.split(";");
+                        for(String items: splits){
+                            String[] item = items.split("=");
+                            generalDatasourceRepository.writeItem(item[0], Integer.parseInt(item[1]));
+                        }
+                    }
+                } catch (IOException e) {
+                    // Failure happened before any log was written
+                }
+
+                System.out.println("Undo uncommited txns...");
+                for(Transaction trans: txns.values()) {
+                    if(trans.isLeader && !commits.contains(trans)){
+                        transactionManager.rollback(trans);
+                        if(!this.rollbacks.contains(trans))
+                            this.rollbacks.add(trans);
+                    }
+                }
+                for (Transaction trans : txns.values()) {
+                    if (trans.isLeader)
+                        trans.releaseLocks();
+                }
+                failIndex--;
+                continue;
+            }
 
 
             if(txn != null){
@@ -166,7 +170,6 @@ public class WorkflowController {
                 String message = pair.getKey();
                 HashMap<String, DataItem> data = pair.getValue();
                 if(message.equals("COMMITTED")){
-
                     // update unstarted transacitons' data
                     for(String key: this.txns.keySet()){
                         if(this.txns.get(key).getPtr() == 0)
@@ -181,20 +184,20 @@ public class WorkflowController {
                         this.rollbacks.remove(txn);
                     }
                     // Release locks
-                    txn.releaseLocks();
                 } else if(message.equals("ABORT")){
                     // avoid repeated add
                     if(!this.rollbacks.contains(txn))
                         this.rollbacks.add(txn);
-                    txn.releaseLocks();
                 }
                 System.out.println();
+                txn.releaseLocks();
+                if (txn.isLeader) {
+                    failIndex--;
+                }
             }else{
                 System.out.println();
                 break;
             }
-
-            failIndex--;
 
         }
 
