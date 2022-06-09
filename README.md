@@ -17,6 +17,10 @@ create unique index data_item_key_uindex
     on data_item (key);
 ```
 
-Create a `logs/` folder under the project root directory if not already there.
+## Run
+1. The project is built on `Maven`. Be sure to install the dependencies by clicking reload button in IDEA or run with: `mvn install` before running the project.
+2. Modify the `username` and `password` in `jdbc.conf` with your postgre settings.
 
-Then run：`Launch.class`
+3. Create a `logs/` folder under the project root directory if not already there. After running the program, the logs will be generated here.
+
+4. Then run：`Launch.class`

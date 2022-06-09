@@ -1,0 +1,802 @@
+/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54573:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/charsets.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/cldrdata.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/dnsns.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/jaccess.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/jfxrt.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/localedata.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/nashorn.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/sunec.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/sunjce_provider.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/sunpkcs11.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/ext/zipfs.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/jce.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/jfr.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/jfxswt.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/jsse.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/management-agent.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/resources.jar:/Users/xzliu/Library/Java/JavaVirtualMachines/liberica-1.8.0_332/jre/lib/rt.jar:/Users/xzliu/IdeaProjects/CS223ProjectV2/target/classes:/Users/xzliu/.m2/repository/com/baomidou/mybatis-plus-boot-starter/3.3.1/mybatis-plus-boot-starter-3.3.1.jar:/Users/xzliu/.m2/repository/com/baomidou/mybatis-plus/3.3.1/mybatis-plus-3.3.1.jar:/Users/xzliu/.m2/repository/com/baomidou/mybatis-plus-extension/3.3.1/mybatis-plus-extension-3.3.1.jar:/Users/xzliu/.m2/repository/com/baomidou/mybatis-plus-core/3.3.1/mybatis-plus-core-3.3.1.jar:/Users/xzliu/.m2/repository/com/baomidou/mybatis-plus-annotation/3.3.1/mybatis-plus-annotation-3.3.1.jar:/Users/xzliu/.m2/repository/com/github/jsqlparser/jsqlparser/3.1/jsqlparser-3.1.jar:/Users/xzliu/.m2/repository/org/mybatis/mybatis/3.5.3/mybatis-3.5.3.jar:/Users/xzliu/.m2/repository/org/mybatis/mybatis-spring/2.0.3/mybatis-spring-2.0.3.jar:/Users/xzliu/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.2.2.RELEASE/spring-boot-autoconfigure-2.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/boot/spring-boot/2.2.2.RELEASE/spring-boot-2.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/spring-core/5.2.2.RELEASE/spring-core-5.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/spring-jcl/5.2.2.RELEASE/spring-jcl-5.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/spring-context/5.2.2.RELEASE/spring-context-5.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/spring-aop/5.2.2.RELEASE/spring-aop-5.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/spring-expression/5.2.2.RELEASE/spring-expression-5.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/2.2.2.RELEASE/spring-boot-starter-jdbc-2.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/boot/spring-boot-starter/2.2.2.RELEASE/spring-boot-starter-2.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.2.2.RELEASE/spring-boot-starter-logging-2.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/Users/xzliu/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/Users/xzliu/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.12.1/log4j-to-slf4j-2.12.1.jar:/Users/xzliu/.m2/repository/org/apache/logging/log4j/log4j-api/2.12.1/log4j-api-2.12.1.jar:/Users/xzliu/.m2/repository/org/slf4j/jul-to-slf4j/1.7.29/jul-to-slf4j-1.7.29.jar:/Users/xzliu/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/Users/xzliu/.m2/repository/org/yaml/snakeyaml/1.25/snakeyaml-1.25.jar:/Users/xzliu/.m2/repository/com/zaxxer/HikariCP/3.4.1/HikariCP-3.4.1.jar:/Users/xzliu/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/Users/xzliu/.m2/repository/org/springframework/spring-jdbc/5.2.2.RELEASE/spring-jdbc-5.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/spring-beans/5.2.2.RELEASE/spring-beans-5.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/springframework/spring-tx/5.2.2.RELEASE/spring-tx-5.2.2.RELEASE.jar:/Users/xzliu/.m2/repository/org/postgresql/postgresql/42.3.5/postgresql-42.3.5.jar:/Users/xzliu/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/Users/xzliu/.m2/repository/com/alibaba/druid/1.2.5/druid-1.2.5.jar:/Users/xzliu/.m2/repository/com/typesafe/config/1.4.2/config-1.4.2.jar cs223.group8.Launch
+follower1-T2: R(C);R(C);C;
+follower1-T3: R(A);R(C);C;
+follower2-T3: R(B);R(A);C;
+leader-T2: R(C);W(C=2);C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: R(A);W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+follower2-T3 locked A with Follower Lock
+follower2-T3 locked B with Follower Lock
+execute: follower2-T3-R(B);
+15:41:23.644 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+15:41:23.734 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:23.737 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:23.739 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:23.752 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:23.753 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:23.755 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:23.756 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:23.757 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:23.758 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:23.759 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:23.760 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:23.762 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:23.763 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:23.767 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:23.769 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:23.770 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:23.772 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:23.788 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:23.789 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:23.790 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:23.791 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:23.792 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:23.793 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:23.794 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:23.794 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:23.795 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:23.795 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:23.797 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:23.798 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:23.800 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:23.801 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:23.802 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:23.803 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:23.804 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:23.839 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower2]
+
+follower2-T3 unlocked A from Follower Lock
+follower2-T3 unlocked B from Follower Lock
+follower1-T2: R(C);R(C);C;
+follower1-T3: R(A);R(C);C;
+follower2-T3: R(A);C;
+leader-T2: R(C);W(C=2);C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: R(A);W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower2-T3-R(A);
+
+follower2-T3 unlocked A from Follower Lock
+follower2-T3 unlocked B from Follower Lock
+follower1-T2: R(C);R(C);C;
+follower1-T3: R(A);R(C);C;
+follower2-T3: C;
+leader-T2: R(C);W(C=2);C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: R(A);W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+leader-T1 locked B with Leader Lock
+execute: leader-T1-R(A);
+15:41:23.958 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:23.959 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:23.960 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:23.961 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:23.962 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:23.963 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:23.964 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:23.964 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:23.965 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:23.965 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:23.966 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:23.967 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:23.968 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:23.969 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:23.970 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:23.971 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:23.972 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:23.974 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/leader]
+
+leader-T1 unlocked B from Leader Lock
+follower1-T2: R(C);R(C);C;
+follower1-T3: R(A);R(C);C;
+follower2-T3: C;
+leader-T2: R(C);W(C=2);C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+follower1-T2 locked C with Follower Lock
+execute: follower1-T2-R(C);
+15:41:24.007 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.008 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.008 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.009 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.009 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.010 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.011 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.011 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.011 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.012 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.013 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.015 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.015 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.016 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.017 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.018 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.018 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.021 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower1]
+
+follower1-T2 unlocked C from Follower Lock
+follower1-T2: R(C);C;
+follower1-T3: R(A);R(C);C;
+follower2-T3: C;
+leader-T2: R(C);W(C=2);C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+leader-T2 locked C with Leader Lock
+execute: leader-T2-R(C);
+15:41:24.055 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.055 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.056 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.056 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.057 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.058 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.058 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.058 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.059 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.059 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.060 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.061 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.061 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.063 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.064 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.064 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.065 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.067 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/leader]
+
+leader-T2 unlocked C from Leader Lock
+follower1-T2: R(C);C;
+follower1-T3: R(A);R(C);C;
+follower2-T3: C;
+leader-T2: W(C=2);C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower1-T2-R(C);
+15:41:24.090 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.090 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.091 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.092 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.092 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.093 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.094 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.094 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.094 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.095 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.096 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.096 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.099 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.100 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.100 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.101 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.102 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.104 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower1]
+
+follower1-T2 unlocked C from Follower Lock
+follower1-T2: C;
+follower1-T3: R(A);R(C);C;
+follower2-T3: C;
+leader-T2: W(C=2);C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower1-T2-C;
+data after follower1-T2 is committed:
+
+follower1-T2 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: R(A);R(C);C;
+follower2-T3: C;
+leader-T2: W(C=2);C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: leader-T2-W(C=2);
+
+leader-T2 unlocked C from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: R(A);R(C);C;
+follower2-T3: C;
+leader-T2: C;
+leader-T3: W(A=4);W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+leader-T3 locked A with Leader Lock
+leader-T3 locked B with Leader Lock
+leader-T3 locked C with Leader Lock
+execute: leader-T3-W(A=4);
+
+leader-T3 unlocked A from Leader Lock
+leader-T3 unlocked B from Leader Lock
+leader-T3 unlocked C from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: R(A);R(C);C;
+follower2-T3: C;
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+follower1-T3 locked A with Follower Lock
+follower1-T3 locked C with Follower Lock
+execute: follower1-T3-R(A);
+
+follower1-T3 unlocked A from Follower Lock
+follower1-T3 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: R(C);C;
+follower2-T3: C;
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower1-T3-R(C);
+
+follower1-T3 unlocked A from Follower Lock
+follower1-T3 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: C;
+follower2-T3: C;
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(A);R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+follower1-T1 locked A with Follower Lock
+follower1-T1 locked B with Follower Lock
+follower1-T1 locked C with Follower Lock
+execute: follower1-T1-R(A);
+
+follower1-T1 unlocked A from Follower Lock
+follower1-T1 unlocked B from Follower Lock
+follower1-T1 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: C;
+follower2-T3: C;
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower2-T3-C;
+data after follower2-T3 is committed:
+
+follower2-T3 unlocked A from Follower Lock
+follower2-T3 unlocked B from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: C;
+follower2-T3: No more operation.
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(C);R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower1-T1-R(C);
+
+follower1-T1 unlocked A from Follower Lock
+follower1-T1 unlocked B from Follower Lock
+follower1-T1 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: C;
+follower2-T3: No more operation.
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: R(B);C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower1-T1-R(B);
+
+follower1-T1 unlocked A from Follower Lock
+follower1-T1 unlocked B from Follower Lock
+follower1-T1 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: C;
+follower2-T3: No more operation.
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(C);R(B);C;
+follower1-T1: C;
+follower2-T1: R(A);R(B);R(C);C;
+follower2-T2 locked B with Follower Lock
+follower2-T2 locked C with Follower Lock
+execute: follower2-T2-R(C);
+15:41:24.143 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.144 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.145 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.145 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.146 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.147 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.147 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.147 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.148 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.148 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.149 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.150 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.150 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.151 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.152 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.152 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.153 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.155 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower2]
+
+follower2-T2 unlocked B from Follower Lock
+follower2-T2 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: C;
+follower2-T3: No more operation.
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(B);C;
+follower1-T1: C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower1-T3-C;
+data after follower1-T3 is committed:
+
+follower1-T3 unlocked A from Follower Lock
+follower1-T3 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: C;
+leader-T3: W(B=4);W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(B);C;
+follower1-T1: C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: leader-T3-W(B=4);
+
+leader-T3 unlocked A from Leader Lock
+leader-T3 unlocked B from Leader Lock
+leader-T3 unlocked C from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: C;
+leader-T3: W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(B);C;
+follower1-T1: C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: leader-T2-C;
+data after leader-T2 is committed:
+15:41:24.179 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.180 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.180 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.181 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.181 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.182 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.182 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.182 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.183 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.183 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.184 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.185 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.186 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.186 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.187 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.188 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.189 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.192 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/leader]
+A=4;B=4;C=2;
+Synchronizing with follower1...
+15:41:24.240 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.241 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.242 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.242 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.243 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.244 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.244 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.244 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.245 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.247 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.248 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.248 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.249 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.249 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.250 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.250 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.251 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.253 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower1]
+Synchronizing with follower2...
+15:41:24.283 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.284 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.285 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.285 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.285 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.286 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.286 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.286 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.287 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.287 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.288 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.288 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.289 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.289 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.290 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.290 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.291 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.293 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower2]
+
+leader-T2 unlocked C from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: R(B);C;
+follower1-T1: C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower2-T2-R(B);
+
+follower2-T2 unlocked B from Follower Lock
+follower2-T2 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: C;
+follower1-T1: C;
+follower2-T1: R(A);R(B);R(C);C;
+execute: follower2-T2-C;
+data after follower2-T2 is committed:
+
+follower2-T2 unlocked B from Follower Lock
+follower2-T2 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: No more operation.
+follower1-T1: C;
+follower2-T1: R(A);R(B);R(C);C;
+follower2-T1 locked A with Follower Lock
+follower2-T1 locked B with Follower Lock
+follower2-T1 locked C with Follower Lock
+execute: follower2-T1-R(A);
+
+follower2-T1 unlocked A from Follower Lock
+follower2-T1 unlocked B from Follower Lock
+follower2-T1 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: No more operation.
+follower1-T1: C;
+follower2-T1: R(B);R(C);C;
+execute: follower1-T1-C;
+data after follower1-T1 is committed:
+
+follower1-T1 unlocked A from Follower Lock
+follower1-T1 unlocked B from Follower Lock
+follower1-T1 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: W(C=4);C;
+leader-T1: W(B=1);C;
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: R(B);R(C);C;
+execute: leader-T3-W(C=4);
+
+leader-T3 unlocked A from Leader Lock
+leader-T3 unlocked B from Leader Lock
+leader-T3 unlocked C from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: C;
+leader-T1: W(B=1);C;
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: R(B);R(C);C;
+execute: follower2-T1-R(B);
+
+follower2-T1 unlocked A from Follower Lock
+follower2-T1 unlocked B from Follower Lock
+follower2-T1 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: C;
+leader-T1: W(B=1);C;
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: R(C);C;
+execute: leader-T3-C;
+data after leader-T3 is committed:
+15:41:24.329 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.330 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.330 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.330 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.331 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.331 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.332 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.332 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.332 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.333 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.334 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.334 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.335 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.335 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.335 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.336 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.336 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.338 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/leader]
+A=4;B=4;C=4;
+Synchronizing with follower1...
+15:41:24.367 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.368 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.368 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.369 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.369 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.369 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.370 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.370 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.370 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.371 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.371 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.372 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.372 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.372 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.373 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.373 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.374 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.375 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower1]
+Synchronizing with follower2...
+15:41:24.405 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.406 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.406 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.406 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.407 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.407 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.407 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.408 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.408 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.408 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.409 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.409 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.410 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.411 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.411 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.411 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.412 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.414 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower2]
+
+leader-T3 unlocked A from Leader Lock
+leader-T3 unlocked B from Leader Lock
+leader-T3 unlocked C from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: No more operation.
+leader-T1: W(B=1);C;
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: R(C);C;
+Failure happens, need to recover
+Creating new node...
+15:41:24.455 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/]
+15:41:24.669 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/backup_leader_1654814484455]
+15:41:24.689 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.690 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.690 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.690 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.691 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.691 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.692 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.692 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.692 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.692 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.693 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.693 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.694 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.695 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.695 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.696 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.696 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+Redo committed txns...
+15:41:24.699 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/backup_leader_1654814484455]
+Undo uncommited txns...
+leader-T1's validation failed. Must rollback.
+leader-T2 unlocked C from Leader Lock
+leader-T3 unlocked A from Leader Lock
+leader-T3 unlocked B from Leader Lock
+leader-T3 unlocked C from Leader Lock
+leader-T1 unlocked B from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: No more operation.
+leader-T1: R(A);W(B=1);C;
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: R(C);C;
+leader-T1 locked B with Leader Lock
+execute: leader-T1-R(A);
+15:41:24.725 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.726 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.726 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.726 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.727 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.727 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.727 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.728 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.728 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.728 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.729 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.729 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.730 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.730 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.730 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.731 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.731 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.733 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/leader]
+
+leader-T1 unlocked B from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: No more operation.
+leader-T1: W(B=1);C;
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: R(C);C;
+execute: leader-T1-W(B=1);
+
+leader-T1 unlocked B from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: No more operation.
+leader-T1: C;
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: R(C);C;
+execute: leader-T1-C;
+data after leader-T1 is committed:
+15:41:24.755 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.756 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.756 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.757 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.757 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.758 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.759 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.759 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.759 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.760 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.760 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.761 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.761 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.761 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.762 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.762 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.763 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.765 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/backup_leader_1654814484455]
+A=4;B=1;C=4;
+Synchronizing with follower1...
+15:41:24.795 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.796 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.796 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.796 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.797 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.797 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.797 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.797 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.798 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.798 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.798 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.799 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.799 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.799 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.800 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.800 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.800 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.803 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower1]
+Synchronizing with follower2...
+15:41:24.825 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.insert
+15:41:24.826 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.delete
+15:41:24.826 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteByMap
+15:41:24.826 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteById
+15:41:24.827 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.deleteBatchIds
+15:41:24.827 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.update
+15:41:24.827 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.updateById
+15:41:24.827 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectById
+15:41:24.828 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectBatchIds
+15:41:24.828 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectByMap
+15:41:24.828 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectOne
+15:41:24.829 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectCount
+15:41:24.829 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMaps
+15:41:24.829 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectMapsPage
+15:41:24.830 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectObjs
+15:41:24.830 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectList
+15:41:24.830 [main] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: cs223.group8.mapper.DataItemMapper.selectPage
+15:41:24.832 [main] DEBUG org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:postgresql://127.0.0.1:5432/follower2]
+
+leader-T1 unlocked B from Leader Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: No more operation.
+leader-T1: No more operation.
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: R(C);C;
+execute: follower2-T1-R(C);
+
+follower2-T1 unlocked A from Follower Lock
+follower2-T1 unlocked B from Follower Lock
+follower2-T1 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: No more operation.
+leader-T1: No more operation.
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: C;
+execute: follower2-T1-C;
+data after follower2-T1 is committed:
+
+follower2-T1 unlocked A from Follower Lock
+follower2-T1 unlocked B from Follower Lock
+follower2-T1 unlocked C from Follower Lock
+follower1-T2: No more operation.
+follower1-T3: No more operation.
+follower2-T3: No more operation.
+leader-T2: No more operation.
+leader-T3: No more operation.
+leader-T1: No more operation.
+follower2-T2: No more operation.
+follower1-T1: No more operation.
+follower2-T1: No more operation.
+
+Schedule generated:
+follower2-T3-R(B); follower2-T3-R(A); leader-T1-R(A); follower1-T2-R(C); leader-T2-R(C); follower1-T2-R(C); follower1-T2-C; leader-T2-W(C=2); leader-T3-W(A=4); follower1-T3-R(A); follower1-T3-R(C); follower1-T1-R(A); follower2-T3-C; follower1-T1-R(C); follower1-T1-R(B); follower2-T2-R(C); follower1-T3-C; leader-T3-W(B=4); leader-T2-C; follower2-T2-R(B); follower2-T2-C; follower2-T1-R(A); follower1-T1-C; leader-T3-W(C=4); follower2-T1-R(B); leader-T3-C; leader-T1-A; leader-T1-R(A); leader-T1-W(B=1); leader-T1-C; follower2-T1-R(C); follower2-T1-C;
+
+Process finished with exit code 0
